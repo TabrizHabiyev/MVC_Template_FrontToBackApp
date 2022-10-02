@@ -20,6 +20,9 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+
+
 
 app.UseAuthorization();
 
@@ -30,10 +33,6 @@ app.UseEndpoints(endpoints =>
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
 });
-
-
-
-
 
 app.MapControllerRoute(
     name: "default",

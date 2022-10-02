@@ -13,23 +13,5 @@ public class MyContext : DbContext
 
     public virtual DbSet<Product> Products { get; set; }
     public virtual DbSet<ProductPhoto> ProductPhotos { get; set; }
-
-
-    //public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-    //{
-    //    var datas = ChangeTracker.Entries<BaseEntity>();
-
-    //    foreach (var item in datas)
-    //    {
-    //        _ = item.State switch
-    //        {
-    //            EntityState.Added => item.Entity.CreatedDate = DateTime.Now,
-    //            EntityState.Modified => item.Entity.ModifiedDate = DateTime.Now
-    //        };
-    //    }
-    //    return await base.SaveChangesAsync(cancellationToken);
-    //}
-
-
-
+    public virtual DbSet<Basket> Baskets { get; set; }
 }

@@ -17,7 +17,9 @@
                 <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick-view-modal" class="single-product-item-action-link"><i class="icon-rt-eye2"></i></a>
             </li>
             <li class="single-product-item-action-list product-cart">
-                <a href="#" class="single-product-item-action-link"><i class="icon-rt-basket-outline"></i></a>
+                <a asp-controller="basket" asp-action="AddItemToBasket" asp-route-ProductId="@Model.Id" asp-route-quantity="1" class="single-product-item-action-link">
+                    <i class="icon-rt-basket-outline"></i>
+                    </a>
             </li>
         </ul>
     </div>

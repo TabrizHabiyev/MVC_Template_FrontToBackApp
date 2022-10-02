@@ -13,7 +13,6 @@ public class Product:BaseEntity
     public string Name { get; set; } = null!;
     public string Title { get; set; } = null!;
     public string Description { get; set; } = null!;
-
     [Column(TypeName = "decimal(18,2)")]
     public decimal StartPrice { get; set; }
     [Column(TypeName = "decimal(18,2)")]

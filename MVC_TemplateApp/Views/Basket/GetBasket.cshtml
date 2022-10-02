@@ -1,0 +1,84 @@
+﻿@using MVC_TemplateApp.DTOs
+@model BasketDto
+
+<section class="page-secton-wrapper section-space-ptb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="wishlist-tiel">
+                            <h2 class="mb-5 fw-bold">My Cart</h2>
+                        </div>
+                        <form action="#" class="cart-table">
+                            <div class="table-content table-responsive">
+                              @if(Model.Items.Count > 0){
+                            <table class="table border">
+                                <thead>
+                                    <tr>
+                                        <th class="plantmore-product-remove">Remove</th>
+                                        <th class="plantmore-product-thumbnail">Images</th>
+                                        <th class="cart-product-name">Product</th>
+                                        <th class="plantmore-product-price">Unit Price</th>
+                                        <th class="plantmore-product-quantity">Quantity</th>
+                                        <th class="plantmore-product-subtotal">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   @foreach(var basket in Model.Items){
+                                        <tr>
+                                            <td class="plantmore-product-remove"><a asp-controller="basket" asp-action="RemoveBasketItem" asp-route-ProductId="@basket.ProductId" asp-route-quantity="1"><i class="icon-rt-close-outline"></i></a></td>
+                                            <td class="plantmore-product-thumbnail"><a href="#"><img src="@basket.ProductPhotoUrl" alt=""></a></td>
+                                            <td class="plantmore-product-name"><a href="#">@basket.Name</a></td>
+                                            <td class="plantmore-product-price"><span class="amount">@basket.Price</span></td>
+                                            <td class="plantmore-product-quantity">
+                                                <div class="quantity">
+                                                    <div class="cart-plus-minus justify-content-center">
+                                                        <div class="dec qtybutton">-</div>
+                                                        <input class="cart-plus-minus-box" value="@basket.Quantity" type="text">
+                                                        <div class="inc qtybutton">+</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="product-subtotal"><span class="amount">@(basket.Price * basket.Quantity)</span></td>
+                                        </tr>
+                                   }
+                                </tbody>
+                            </table>
+                              }else{
+                            <h1>No Items in the Basket</h1>
+                              }
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="coupon-all mt-4">
+
+                                        <div class="coupon2">
+                                            <input class="submit btn btn--primary" name="update_cart" value="Update cart" type="submit">
+                                            <a href="shop.html" class="btn btn--primary continue-btn ms-2">Continue Shopping</a>
+                                        </div>
+
+                                        <div class="coupon mt-4">
+                                            <h3 class="fw-bold mb-2">Coupon</h3>
+                                            <p class="text">Enter your coupon code if you have one.</p>
+                                            <input id="coupon_code" class="input-text-coupon_code" name="coupon_code" value="" placeholder="Coupon code" type="text">
+                                            <input class="button btn btn--primary ms-2" name="apply_coupon" value="Apply coupon" type="submit">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 ml-auto">
+                                    <div class="cart-page-total mt-4">
+                                        <h2 class="fw-bold mb-3">Cart totals</h2>
+                                        <ul>
+                                            <li>Subtotal <span>$170.00</span></li>
+                                            <li>Total <span>$170.00</span></li>
+                                        </ul>
+                                        <div class="button-box mt-3 text-end">
+                                            <a href="#" class="proceed-checkout-btn btn btn--primary w-full">Proceed to checkout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </form></div>
+                </div>
+            </div>
+        </section>

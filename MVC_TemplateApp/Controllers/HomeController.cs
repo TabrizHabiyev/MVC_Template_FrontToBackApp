@@ -17,7 +17,7 @@ namespace MVC_TemplateApp.Controllers
         }
 
         public IActionResult Index()
-        { 
+        {
             var products = new List<Product>
             {
                 new Product {
